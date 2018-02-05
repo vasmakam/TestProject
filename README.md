@@ -50,7 +50,7 @@ $ curl -G http://localhost:8080/fibonacci?N=34
 [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765,10946,17711,28657,46368,75025,121393,196418,317811,514229,832040,1346269,2178309,3524578,5702887]
 
 ### Create and monitor deadlocked threads
-The create command creates two threads which will become deadlocked. The monitor command can be issued repeatedly to detect and report on the deadlocked threads. In the current implmentation, the main Java program must be killed to terminate the two deadlocked threads.
+The create command creates two threads which will become deadlocked. The monitor command can be issued repeatedly to detect and report on the deadlocked threads. In the current implementation, the main Java program must be killed to terminate the two deadlocked threads.
 
 $ curl http://localhost:8080/createThreads
 

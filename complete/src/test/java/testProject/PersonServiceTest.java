@@ -1,6 +1,7 @@
 package testProject;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -76,7 +77,7 @@ public class PersonServiceTest {
 		
 		List<Person> found = personRepository.findAll();
 		log.info("Number of records found: "+found.size());
-		assertTrue(found.size()==3);
+		assertEquals(found.size(),3);
 		
 		personRepository.delete(alex);
 		found = personRepository.findAll();
@@ -86,7 +87,7 @@ public class PersonServiceTest {
 		for(Person p : found) {
 			log.info("Id: "+p.getId()+" Name: "+p.getFirstName()+" "+p.getLastName());    
 		}
-		assertTrue(found.size()==2);
+		assertEquals(found.size(),2);
 	}
 	
 	/*
@@ -100,12 +101,12 @@ public class PersonServiceTest {
 		
 		List<Person> found = psc.getByName(shiv.getLastName());
 		log.info("Number of records found: "+found.size());
-		assertTrue(found.size()==1);
+		assertEquals(found.size(),1);
 		
 		for(Person p : found) {
 			if((shiv.getFirstName().equals(p.getFirstName()) && (shiv.getLastName().equals(p.getLastName())))) {
 				String result = psc.delete(p.getId());
-				assertTrue(result.equals("Success"));
+				assertEquals(result,"Success");
 			}
 		}
 	}
@@ -132,9 +133,11 @@ public class PersonServiceTest {
 		// now update the record
 		shiv.setLastName("Shaker");
 		String result = psc.update(id, shiv);
-		assertTrue(result.equals("Success"));
+		assertEquals(result,"Success");
 
 	}
+	
+	
 
 }
 
